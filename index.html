@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishal Gurung | Network Engineer | BE IT 2025</title>
+    <title>Bishal Gurung | BE Information Technology 2025 | Networking Intern</title>
+    <meta name="description" content="BE Information Technology Graduate 2025 | Cisco AICTE Virtual Internship | Chandigarh University | Entry-level Networking | Bharatpur, Nepal">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,13 +13,13 @@
             --primary: #1e3a8a;
             --secondary: #3b82f6;
             --success: #10b981;
+            --warning: #f59e0b;
             --dark: #111827;
             --light: #f9fafb;
         }
         * { font-family: 'Inter', sans-serif; }
         body { line-height: 1.7; color: #374151; background: linear-gradient(to bottom, #f9fafb, #e5e7eb); }
         
-        /* Navigation */
         .navbar { 
             background: rgba(17,24,39,0.98) !important; backdrop-filter: blur(20px); 
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: all 0.3s ease;
@@ -28,9 +29,7 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary)); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .navbar.scrolled { transform: translateY(0); }
 
-        /* Hero */
         .hero { 
             background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
             color: white; padding: 120px 0; position: relative; overflow: hidden;
@@ -38,97 +37,77 @@
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background-image: radial-gradient(circle at 20% 50%, rgba(120,119,198,0.3) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
-                              radial-gradient(circle at 40% 80%, rgba(120,219,226,0.3) 0%, transparent 50%);
+                              radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%);
             animation: heroFloat 20s ease-in-out infinite;
         }
         @keyframes heroFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(10px) rotate(240deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
         .hero-content { position: relative; z-index: 2; }
-        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; letter-spacing: -1px; }
-        .hero-subtitle { font-size: 1.3rem; opacity: 0.95; margin-bottom: 2rem; }
+        .hero h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 800; }
         .btn-main { 
-            background: var(--success); border: none; padding: 16px 40px; 
-            font-weight: 600; border-radius: 12px; box-shadow: 0 10px 30px rgba(16,185,129,0.4);
-            transition: all 0.4s;
+            background: var(--success); border: none; padding: 14px 36px; 
+            font-weight: 600; border-radius: 10px; box-shadow: 0 8px 25px rgba(16,185,129,0.4);
+            transition: all 0.3s;
         }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(16,185,129,0.6); }
-        .btn-main:disabled { opacity: 0.7; transform: none !important; }
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(16,185,129,0.5); }
 
-        /* Sections */
-        .section-padding { padding: 100px 0; }
-        .section-title { 
-            text-align: center; margin-bottom: 80px; position: relative;
-        }
+        .section-padding { padding: 90px 0; }
+        .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
-            font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--secondary)); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .section-title::after { 
-            content: ''; position: absolute; bottom: -15px; left: 50%; 
-            transform: translateX(-50%); width: 70px; height: 4px; 
+            content: ''; position: absolute; bottom: -12px; left: 50%; 
+            transform: translateX(-50%); width: 60px; height: 3px; 
             background: linear-gradient(90deg, var(--primary), var(--success)); border-radius: 2px;
         }
 
-        /* Cards */
         .card-professional {
-            border: none; border-radius: 24px; overflow: hidden; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1); transition: all 0.5s;
-            background: white; height: 100%;
+            border: none; border-radius: 16px; overflow: hidden; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s;
+            background: white;
         }
         .card-professional:hover { 
-            transform: translateY(-15px); box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+            transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.12);
         }
         .card-icon { 
-            width: 80px; height: 80px; border-radius: 20px; 
+            width: 65px; height: 65px; border-radius: 14px; 
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex; align-items: center; justify-content: center; color: white;
-            font-size: 1.8rem; margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+        .internship-badge {
+            background: linear-gradient(135deg, var(--success), #34d399);
+            color: white; padding: 8px 20px; border-radius: 25px; font-weight: 600;
         }
         .contact-card {
-            cursor: pointer; transition: all 0.3s ease; border-radius: 16px;
+            cursor: pointer; transition: all 0.3s; border-radius: 12px;
             background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .contact-card:hover {
-            background: rgba(255,255,255,0.2); transform: translateY(-5px);
-        }
+        .contact-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-4px); }
 
-        /* Skills */
-        .skill-bar { 
-            height: 12px; background: #e5e7eb; border-radius: 10px; 
-            overflow: hidden; position: relative; margin-top: 0.5rem;
+        .skill-bar { height: 8px; background: #e5e7eb; border-radius: 6px; overflow: hidden; margin-top: 0.4rem; }
+        .skill-progress { height: 100%; border-radius: 6px; width: 0%; transition: width 2s ease-out; }
+        .timeline-dot {
+            width: 12px; height: 12px; background: var(--success); border-radius: 50%;
+            position: absolute; left: 0; top: 0; z-index: 2;
         }
-        .skill-progress { 
-            height: 100%; background: linear-gradient(90deg, var(--success), var(--secondary));
-            border-radius: 10px; width: 0%; transition: width 2.5s ease-out;
-        }
-        .skill-container { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-        .skill-container.animate { opacity: 1; transform: translateY(0); }
+        .timeline-line { background: var(--primary); width: 2px; position: absolute; left: 6px; }
 
-        /* Counters */
-        .counter { font-size: 3rem; font-weight: 800; }
-
-        /* Notifications */
-        .notification {
-            position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 320px;
-            transform: translateX(400px); transition: transform 0.3s ease;
-        }
-        .notification.show { transform: translateX(0); }
-
-        /* Responsive */
         @media (max-width: 768px) { 
-            .section-padding { padding: 70px 0; }
+            .section-padding { padding: 60px 0; } 
             .hero { padding: 80px 0; text-align: center; }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-network-wired me-2"></i>Bishal Gurung</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -138,8 +117,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -152,10 +131,12 @@
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-7">
                     <div class="hero-content">
-                        <div class="badge bg-light text-dark px-4 py-2 fs-6 fw-semibold mb-4">BE Information Technology 2025 Graduate</div>
-                        <h1 id="heroTitle" class="display-3 fw-bold mb-4">Network Engineer</h1>
-                        <p class="hero-subtitle lead">Bachelor of Engineering in Information Technology<br>Chandigarh University | Bharatpur, Nepal<br>Building robust network infrastructure for the future</p>
-                        <div>
+                        <div class="internship-badge mb-4 d-inline-block">
+                            <i class="fas fa-certificate me-2"></i>Cisco AICTE Virtual Intern 2024
+                        </div>
+                        <h1 id="heroTitle" class="display-4 fw-bold mb-4">BE Information Technology<br>2025<br>Graduate</h1>
+                        <p class="lead mb-4">Chandigarh University | Networking Enthusiast<br>Entry-level IT Professional<br>Available for Internships & Trainee Positions</p>
+                        <div class="mb-4">
                             <a href="resume.pdf" class="btn btn-main btn-lg me-3 mb-3" target="_blank">
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
@@ -163,67 +144,110 @@
                                 <i class="fas fa-envelope me-2"></i>Contact Me
                             </a>
                         </div>
-                        <!-- Dynamic Counters -->
-                        <div class="row mt-5 pt-4">
-                            <div class="col-md-4 text-center">
-                                <div class="counter text-success" data-target="50">0</div>
-                                <div class="text-white-50">Projects Completed</div>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <div class="counter text-info" data-target="100">0</div>
-                                <div class="text-white-50">Networks Deployed</div>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <div class="counter text-warning" data-target="500">0</div>
-                                <div class="text-white-50">Hours Learning</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <div class="position-relative">
-                        <img src="your-photo.jpg" alt="Bishal Gurung
-" class="img-fluid rounded-circle" 
-                             style="width: 300px; height: 300px; object-fit: cover; border: 8px solid rgba(255,255,255,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.4);">
-                    </div>
+                    <img src="https://via.placeholder.com/320x320/1e3a8a/ffffff?text=Bishal" 
+                         alt="Bishal Gurung" class="img-fluid rounded-circle shadow-lg" 
+                         style="width: 280px; height: 280px; object-fit: cover; border: 6px solid rgba(255,255,255,0.2);">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
-                <h2>Networking Professional</h2>
+                <h2>About Me</h2>
+                <p class="lead text-center text-muted mb-5">Entry-level IT graduate seeking internship or trainee position in networking</p>
             </div>
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="your-photo.jpg" alt="Profile" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/500x500/3b82f6/f9fafb?text=Bishal+Gurung" 
+                         alt="Profile" class="img-fluid rounded-4 shadow-lg w-100" style="height: 450px; object-fit: cover;">
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="fw-bold fs-2 text-dark mb-4">BE Information Technology 2025</h3>
-                    <p class="lead mb-4">Fresh engineering graduate from Chandigarh University with a passion for network infrastructure, Cisco technologies, and IT operations. Building expertise in designing, implementing, and troubleshooting enterprise networks.</p>
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="text-center p-4">
-                                <div class="card-icon mb-3"><i class="fas fa-graduation-cap"></i></div>
-                                <h5>BE IT Graduate</h5>
-                                <p class="text-muted small">Chandigarh University<br>2025</p>
+                    <h3 class="fw-bold fs-2 text-dark mb-4">Entry-Level IT Professional</h3>
+                    <p class="lead mb-4">Fresh BE Information Technology graduate from Chandigarh University with hands-on experience from Cisco AICTE Virtual Internship Program. Passionate about computer networks and eager to build practical skills in network setup and support.</p>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <div class="card-professional p-4 text-center">
+                                <div class="card-icon mb-3 mx-auto"><i class="fas fa-university"></i></div>
+                                <h6 class="fw-bold mb-2">Chandigarh University</h6>
+                                <p class="text-muted small mb-0">BE Information Technology<br>2021–2025</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-4">
-                                <div class="card-icon mb-3" style="background: linear-gradient(135deg, var(--success), #34d399);"><i class="fas fa-network-wired"></i></div>
-                                <h5>Networking</h5>
-                                <p class="text-muted small">CCNA Preparation<br>LAN/WAN Design</p>
+                        <div class="col-md-6">
+                            <div class="card-professional p-4 text-center">
+                                <div class="card-icon mb-3 mx-auto" style="background: linear-gradient(135deg, var(--success), #34d399);">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h6 class="fw-bold mb-2">Cisco AICTE Intern</h6>
+                                <p class="text-muted small mb-0">May–July 2024</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-4">
-                                <div class="card-icon mb-3" style="background: linear-gradient(135deg, var(--secondary), #60a5fa);"><i class="fas fa-tools"></i></div>
-                                <h5>IT Operations</h5>
-                                <p class="text-muted small">Troubleshooting<br>Nepal Engineering Council</p>
+                    </div>
+
+                    <div class="d-flex gap-3 flex-wrap">
+                        <span class="badge bg-primary px-3 py-2">Fast Learner</span>
+                        <span class="badge bg-success px-3 py-2">Teamwork</span>
+                        <span class="badge bg-info px-3 py-2">Communication</span>
+                        <span class="badge bg-warning px-3 py-2">English Fluent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="position-relative">
+                        <div class="timeline-line" style="height: 650px; top: 0; z-index: 1;"></div>
+                        
+                        <!-- Cisco Internship -->
+                        <div class="mb-5 pb-4" style="position: relative;">
+                            <div class="timeline-dot"></div>
+                            <div class="card-professional p-4 ms-5">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Cisco AICTE Virtual Internship</h5>
+                                        <h6 class="text-primary mb-2">May 2024 – July 2024</h6>
+                                    </div>
+                                    <span class="internship-badge">Virtual Internship</span>
+                                </div>
+                                <ul class="mb-0">
+                                    <li>Gained hands-on experience with device configuration and routing protocols</li>
+                                    <li>Developed visualization tool for packet travel across network devices</li>
+                                    <li>Applied VLANs, static/dynamic routing, and troubleshooting techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="mb-5 pb-4" style="position: relative;">
+                            <div class="timeline-dot"></div>
+                            <div class="card-professional p-4 ms-5">
+                                <h5 class="fw-bold mb-2">Bachelor of Engineering in Information Technology</h5>
+                                <h6 class="text-primary mb-3">Chandigarh University | 2021–2025</h6>
+                                <p>Completed comprehensive IT curriculum with focus on computer networks, programming, and systems administration.</p>
+                            </div>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div style="position: relative;">
+                            <div class="timeline-dot"></div>
+                            <div class="card-professional p-4 ms-5">
+                                <h5 class="fw-bold mb-2">Cisco Networking Basics</h5>
+                                <h6 class="text-success mb-3">2023–2024</h6>
+                                <p>Completed foundational Cisco networking training covering network fundamentals and basic configurations.</p>
                             </div>
                         </div>
                     </div>
@@ -236,145 +260,109 @@
     <section id="skills" class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
-                <h2>Networking Skills</h2>
+                <h2>Skills</h2>
             </div>
             <div class="row g-5">
                 <div class="col-lg-6">
-                    <h4 class="fw-semibold mb-4">Core Networking Expertise</h4>
+                    <h4 class="fw-semibold mb-4">Networking Fundamentals</h4>
                     <div class="skill-container">
-                        <div class="skill-label d-flex justify-content-between">
-                            <span>Cisco CCNA (Routing & Switching)</span>
-                            <span>95%</span>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Networking Fundamentals</span><span>80%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95%"></div>
-                        </div>
+                        <div class="skill-bar"><div class="skill-progress bg-success" data-width="80%"></div></div>
                     </div>
                     <div class="skill-container">
-                        <div class="skill-label d-flex justify-content-between">
-                            <span>VLAN & Trunking Configuration</span>
-                            <span>92%</span>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Basic Router/Switch Setup</span><span>75%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="92%"></div>
-                        </div>
+                        <div class="skill-bar"><div class="skill-progress bg-primary" data-width="75%"></div></div>
                     </div>
                     <div class="skill-container">
-                        <div class="skill-label d-flex justify-content-between">
-                            <span>Network Troubleshooting</span>
-                            <span>90%</span>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>IP Addressing & Troubleshooting</span><span>78%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
+                        <div class="skill-bar"><div class="skill-progress bg-info" data-width="78%"></div></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h4 class="fw-semibold mb-4">Tools & Protocols</h4>
-                    <div class="row g-3 mb-4">
-                        <div class="col-6"><span class="badge bg-primary fs-6 px-4 py-3 mb-2 d-block rounded-pill">Cisco IOS</span></div>
-                        <div class="col-6"><span class="badge bg-success fs-6 px-4 py-3 mb-2 d-block rounded-pill">Packet Tracer</span></div>
-                        <div class="col-6"><span class="badge bg-info fs-6 px-4 py-3 mb-2 d-block rounded-pill">Wireshark</span></div>
-                        <div class="col-6"><span class="badge bg-warning fs-6 px-4 py-3 mb-2 d-block rounded-pill">GNS3</span></div>
-                        <div class="col-6"><span class="badge bg-secondary fs-6 px-4 py-3 mb-2 d-block rounded-pill">TCP/IP</span></div>
-                        <div class="col-6"><span class="badge bg-dark fs-6 px-4 py-3 mb-2 d-block rounded-pill">OSPF</span></div>
+                    <h4 class="fw-semibold mb-4">Tools & Technologies</h4>
+                    <div class="row g-3">
+                        <div class="col-6"><span class="badge bg-primary px-4 py-3 mb-2 d-block rounded-pill w-100">Cisco Packet Tracer</span></div>
+                        <div class="col-6"><span class="badge bg-info px-4 py-3 mb-2 d-block rounded-pill w-100">Wireshark</span></div>
+                        <div class="col-6"><span class="badge bg-success px-4 py-3 mb-2 d-block rounded-pill w-100">Cisco IOS</span></div>
+                        <div class="col-6"><span class="badge bg-warning px-4 py-3 mb-2 d-block rounded-pill w-100">PuTTY</span></div>
+                        <div class="col-6"><span class="badge bg-secondary px-4 py-3 mb-2 d-block rounded-pill w-100">VLANs</span></div>
+                        <div class="col-6"><span class="badge bg-dark px-4 py-3 mb-2 d-block rounded-pill w-100">Static Routing</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>Academic & Projects</h2>
-            </div>
-            <div class="row g-4" id="experienceContainer">
-                <!-- Dynamic content loaded by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section - FULLY DYNAMIC -->
-    <section id="contact" class="section-padding bg-dark text-white py-lg-5">
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding" style="background: linear-gradient(135deg, var(--dark), var(--primary)); color: white;">
         <div class="container">
             <div class="section-title">
                 <h2>Let's Connect</h2>
+                <p class="lead text-center text-white-50 mb-5">Bharatpur, Chitwan, Nepal | Available immediately for opportunities</p>
             </div>
             
-            <!-- Contact Info Cards -->
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10">
                     <div class="row g-4 text-center">
-                        <div class="col-md-4 mb-4">
-                            <div class="p-4 contact-card" data-contact="location">
-                                <i class="fas fa-map-marker-alt fa-3x text-success mb-4 d-block"></i>
-                                <h5>Bharatpur, Bagmati</h5>
-                                <p class="text-muted mb-0">Province, Nepal</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="p-4 contact-card" data-contact="email">
-                                <i class="fas fa-envelope fa-3x text-info mb-4 d-block"></i>
-                                <h5>bishalgurung.np.com@gmail.com</h5>
-                                <p class="text-muted small">Click to copy</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4">
                             <div class="p-4 contact-card" data-contact="phone">
-                                <i class="fab fa-whatsapp fa-3x text-success mb-4 d-block"></i>
-                                <h5>+977 9767466422</h5>
-                                <p class="text-muted small">WhatsApp Chat</p>
+                                <i class="fas fa-phone fa-3x text-success mb-3 d-block"></i>
+                                <h5>+977-9767466422</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-4 contact-card" data-contact="email">
+                                <i class="fas fa-envelope fa-3x text-info mb-3 d-block"></i>
+                                <h5>bishalgurung.np.com@gmail.com</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-4">
+                                <i class="fab fa-linkedin fa-3x text-primary mb-3 d-block"></i>
+                                <h5>LinkedIn</h5>
+                                <a href="https://linkedin.com/in/bishal-gurung-20b71b299/" class="text-white-50 small">View Profile</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Dynamic Contact Form -->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div id="contactFormContainer">
-                        <div class="text-center mb-5">
-                            <h3 class="fw-bold display-6 mb-3">Get In Touch</h3>
-                            <p class="lead text-white-50 mb-4">Ready to discuss network projects? Send me a message!</p>
-                        </div>
-                        
-                        <form id="contactForm" class="needs-validation" novalidate>
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                                        <label for="name">Full Name</label>
-                                        <div class="invalid-feedback">Please enter your name</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Email" required>
-                                        <label for="email">Email Address</label>
-                                        <div class="invalid-feedback">Please provide a valid email</div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" id="message" style="height: 140px" placeholder="Your Message" required></textarea>
-                                        <label for="message">Project Details / Message</label>
-                                        <div class="invalid-feedback">Please share what you need help with</div>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-main btn-lg px-5" id="submitBtn">
-                                        <i class="fas fa-paper-plane me-2"></i>Send Message
-                                    </button>
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Name" required>
+                                    <label for="name">Your Name</label>
                                 </div>
                             </div>
-                        </form>
-                        
-                        <!-- Success/Error Messages -->
-                        <div id="formResponse" class="mt-4" style="display: none;"></div>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                    <label for="email">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" style="height: 120px" placeholder="Tell me about the opportunity" required></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-main btn-lg px-5" id="submitBtn">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="formResponse" class="mt-4" style="display: none;"></div>
                 </div>
             </div>
         </div>
@@ -382,103 +370,53 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Dynamic Portfolio Controller
         class BishalPortfolio {
             constructor() {
-                this.experienceData = [
-                    { title: "Bachelor of Engineering", org: "Information Technology", year: "2025", icon: "fa-university" },
-                    { title: "Network Design Projects", org: "Academic Projects", year: "2024-2025", icon: "fa-network-wired" },
-                    { title: "Professional Development", org: "Nepal Engineering Council", year: "In Progress", icon: "fa-certificate" }
-                ];
                 this.init();
             }
 
             init() {
                 this.smoothScroll();
-                this.animateCounters();
                 this.animateSkills();
-                this.navbarScrollEffect();
+                this.navbarEffect();
                 this.contactHandler();
-                this.dynamicExperience();
                 this.typingEffect();
             }
 
             smoothScroll() {
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', (e) => {
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', e => {
                         e.preventDefault();
-                        const target = document.querySelector(anchor.getAttribute('href'));
-                        const offsetTop = target.offsetTop - 80;
-                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                        const target = document.querySelector(link.getAttribute('href'));
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                     });
                 });
-            }
-
-            animateCounters() {
-                const animate = (counter) => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.textContent;
-                    const inc = target / 200;
-                    if (count < target) {
-                        counter.textContent = Math.ceil(count + inc);
-                        setTimeout(() => animate(counter), 1);
-                    } else counter.textContent = target;
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) animate(entry.target);
-                    });
-                });
-                document.querySelectorAll('.counter').forEach(counter => observer.observe(counter));
             }
 
             animateSkills() {
-                const observer = new IntersectionObserver((entries) => {
+                const observer = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const bars = entry.target.querySelectorAll('.skill-progress');
-                            bars.forEach(bar => {
-                                const width = bar.getAttribute('data-width');
-                                bar.style.width = width;
+                            entry.target.querySelectorAll('.skill-progress').forEach(bar => {
+                                bar.style.width = bar.dataset.width;
                             });
-                            entry.target.classList.add('animate');
                         }
                     });
-                }, { threshold: 0.5 });
+                });
                 document.querySelectorAll('.skill-container').forEach(el => observer.observe(el));
             }
 
-            navbarScrollEffect() {
-                let lastScroll = 0;
-                const navbar = document.getElementById('mainNavbar');
+            navbarEffect() {
                 window.addEventListener('scroll', () => {
-                    const scroll = window.scrollY;
-                    if (scroll > 50) {
+                    const navbar = document.getElementById('navbar');
+                    if (window.scrollY > 50) {
+                        navbar.style.background = 'rgba(17,24,39,0.98)';
                         navbar.style.boxShadow = '0 10px 30px rgba(30,58,138,0.3)';
                     } else {
-                        navbar.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+                        navbar.style.background = 'rgba(17,24,39,0.95)';
+                        navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
                     }
-                    lastScroll = scroll;
                 });
-            }
-
-            dynamicExperience() {
-                const container = document.getElementById('experienceContainer');
-                container.innerHTML = this.experienceData.map((exp, index) => `
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-professional h-100">
-                            <div class="card-body text-center p-5">
-                                <div class="card-icon mb-4 mx-auto" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
-                                    <i class="fas ${exp.icon}"></i>
-                                </div>
-                                <h4 class="fw-bold mb-3">${exp.title}</h4>
-                                <h5 class="text-primary mb-3">${exp.org}</h5>
-                                <p class="text-muted"><strong>${exp.year}</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
             }
 
             typingEffect() {
@@ -486,24 +424,24 @@
                 const text = title.textContent;
                 title.textContent = '';
                 let i = 0;
-                const typeWriter = () => {
+                const type = () => {
                     if (i < text.length) {
-                        title.textContent += text.charAt(i);
+                        title.textContent += text[i];
                         i++;
-                        setTimeout(typeWriter, 100);
+                        setTimeout(type, 80);
                     }
                 };
-                window.addEventListener('load', typeWriter);
+                setTimeout(type, 500);
             }
 
             contactHandler() {
-                // Contact trigger effects
-                document.querySelectorAll('.contact-trigger').forEach(trigger => {
-                    trigger.addEventListener('click', () => {
+                // Contact trigger
+                document.querySelectorAll('.contact-trigger').forEach(btn => {
+                    btn.addEventListener('click', () => {
                         setTimeout(() => {
                             document.getElementById('name').focus();
                             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                        }, 500);
+                        }, 300);
                     });
                 });
 
@@ -513,72 +451,52 @@
                         const type = card.dataset.contact;
                         if (type === 'email') {
                             navigator.clipboard.writeText('bishalgurung.np.com@gmail.com');
-                            this.showNotification('Email copied to clipboard!', 'success');
+                            this.notify('Email copied to clipboard!', 'success');
                         } else if (type === 'phone') {
                             window.open('https://wa.me/9779767466422', '_blank');
                         }
-                        card.style.transform = 'scale(0.95)';
-                        setTimeout(() => card.style.transform = '', 150);
                     });
                 });
 
-                // Form handler
-                const form = document.getElementById('contactForm');
-                const submitBtn = document.getElementById('submitBtn');
-                const responseDiv = document.getElementById('formResponse');
-
-                form.addEventListener('submit', async (e) => {
+                // Form submission
+                document.getElementById('contactForm').addEventListener('submit', async e => {
                     e.preventDefault();
-                    if (!form.checkValidity()) {
-                        form.classList.add('was-validated');
+                    if (!e.target.checkValidity()) {
+                        e.target.classList.add('was-validated');
                         return;
                     }
-
-                    const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-                    submitBtn.disabled = true;
-
-                    await new Promise(resolve => setTimeout(resolve, 1500));
                     
-                    responseDiv.innerHTML = `
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="fas fa-check-circle me-2"></i>
-                            Message sent successfully! I'll get back to you within 24 hours.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    `;
-                    responseDiv.style.display = 'block';
-                    form.reset();
-                    form.classList.remove('was-validated');
+                    const btn = document.getElementById('submitBtn');
+                    const original = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                    btn.disabled = true;
 
                     setTimeout(() => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    }, 3000);
+                        document.getElementById('formResponse').innerHTML = `
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Thank you! I'll respond within 24 hours.
+                            </div>
+                        `;
+                        document.getElementById('formResponse').style.display = 'block';
+                        e.target.reset();
+                        btn.innerHTML = original;
+                        btn.disabled = false;
+                    }, 2000);
                 });
             }
 
-            showNotification(message, type = 'info') {
-                const notification = document.createElement('div');
-                notification.className = `alert alert-${type} notification shadow-lg`;
-                notification.innerHTML = `
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>
-                    ${message}
-                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                `;
-                document.body.appendChild(notification);
-                setTimeout(() => notification.classList.add('show'), 100);
-                setTimeout(() => notification.remove(), 4000);
+            notify(message, type) {
+                const toast = document.createElement('div');
+                toast.className = `alert alert-${type} position-fixed`;
+                toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+                toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>${message}`;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 4000);
             }
         }
 
-        // Initialize portfolio
-        document.addEventListener('DOMContentLoaded', () => {
-            new BishalPortfolio();
-        });
+        document.addEventListener('DOMContentLoaded', () => new BishalPortfolio());
     </script>
 </body>
 </html>
-
-
-
