@@ -340,40 +340,235 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Smooth scrolling
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Dynamic Portfolio Controller
+class BishalPortfolio {
+    constructor() {
+        this.init();
+        this.experienceData = [
+            { title: "BE Information Technology", org: "Chandigarh University", year: "2025", icon: "fa-university" },
+            { title: "Network Design Projects", org: "Academic Projects", year: "2024-2025", icon: "fa-network-wired" },
+            { title: "CCNA Certification", org: "Cisco Learning", year: "In Progress", icon: "fa-certificate" }
+        ];
+        this.skillsData = [
+            { name: "Cisco CCNA", level: 95, color: "success" },
+            { name: "VLAN Configuration", level: 92, color: "info" },
+            { name: "Troubleshooting", level: 90, color: "warning" }
+        ];
+    }
+
+    init() {
+        this.smoothScroll();
+        this.animateCounters();
+        this.animateSkills();
+        this.navbarScrollEffect();
+        this.contactFormHandler();
+        this.dynamicExperience();
+        this.typingEffect();
+    }
+
+    // Smooth scrolling with offset for fixed navbar
+    smoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth', block: 'start'
+                const target = document.querySelector(anchor.getAttribute('href'));
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
                 });
             });
         });
+    }
 
-        // Animate skill bars on scroll
+    // Animate counters (views, projects, etc.)
+    animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        const animate = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.textContent;
+            const inc = target / speed;
+            
+            if (count < target) {
+                counter.textContent = Math.ceil(count + inc);
+                setTimeout(() => animate(counter), 1);
+            } else {
+                counter.textContent = target;
+            }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animate(entry.target);
+                }
+            });
+        });
+        
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    // Enhanced skill bar animations
+    animateSkills() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const bars = entry.target.querySelectorAll('.skill-progress');
                     bars.forEach(bar => {
-                        bar.style.width = bar.style.width || '0%';
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width || '0%';
                     });
+                    observer.unobserve(entry.target);
                 }
             });
-        });
+        }, { threshold: 0.5 });
+        
         document.querySelectorAll('.skill-container').forEach(el => observer.observe(el));
+    }
 
-        // Navbar scroll effect
+    // Dynamic navbar effects
+    navbarScrollEffect() {
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(17,24,39,0.98)';
+            const scroll = window.scrollY;
+            
+            // Add glow effect on scroll
+            navbar.style.boxShadow = scroll > 50 
+                ? '0 10px 30px rgba(30,58,138,0.3)' 
+                : '0 4px 6px -1px rgba(0,0,0,0.1)';
+            
+            // Hide/show navbar
+            if (scroll > lastScroll && scroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
             } else {
-                navbar.style.background = 'rgba(17,24,39,0.95)';
+                navbar.style.transform = 'translateY(0)';
             }
+            lastScroll = scroll;
         });
-    </script>
+    }
+
+    // Dynamic experience cards from data
+    dynamicExperience() {
+        const experienceContainer = document.querySelector('#experience .row.g-4');
+        experienceContainer.innerHTML = this.experienceData.map((exp, index) => `
+            <div class="col-lg-4 col-md-6">
+                <div class="card-professional h-100" data-aos="fade-up" data-aos-delay="${index * 100}">
+                    <div class="card-body text-center p-5">
+                        <div class="card-icon mb-4 mx-auto" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                            <i class="fas ${exp.icon}"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">${exp.title}</h4>
+                        <h5 class="text-primary mb-3">${exp.org}</h5>
+                        <p class="text-muted"><strong>Completed: ${exp.year}</strong></p>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Typing effect for hero title
+    typingEffect() {
+        const title = document.querySelector('.hero h1');
+        const text = title.textContent;
+        title.textContent = '';
+        let i = 0;
+        
+        const typeWriter = () => {
+            if (i < text.length) {
+                title.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        window.addEventListener('load', typeWriter);
+    }
+
+    // Contact form handler with validation
+    contactFormHandler() {
+        // Add dynamic contact form
+        const contactSection = document.querySelector('#contact');
+        contactSection.innerHTML += `
+            <div class="row mt-5">
+                <div class="col-12">
+                    <form id="contactForm" class="row g-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-main btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            
+            // Simulate API call
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Show success message
+            submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
+            submitBtn.classList.add('btn-success');
+            
+            setTimeout(() => {
+                e.target.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('btn-success');
+            }, 3000);
+        });
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new BishalPortfolio();
+    
+    // Add counters to hero section
+    const heroContent = document.querySelector('.hero-content');
+    heroContent.innerHTML += `
+        <div class="row mt-5 pt-4">
+            <div class="col-md-4 text-center">
+                <div class="counter fs-1 fw-bold text-success" data-target="50">0</div>
+                <div class="text-white-50">Projects Completed</div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="counter fs-1 fw-bold text-info" data-target="100">0</div>
+                <div class="text-white-50">Networks Deployed</div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="counter fs-1 fw-bold text-warning" data-target="500">0</div>
+                <div class="text-white-50">Hours Learning</div>
+            </div>
+        </div>
+    `;
+});
+</script>
 </body>
 </html>
+
