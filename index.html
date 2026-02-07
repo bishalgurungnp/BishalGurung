@@ -21,13 +21,14 @@
         /* Navigation */
         .navbar { 
             background: rgba(17,24,39,0.98) !important; backdrop-filter: blur(20px); 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: all 0.3s ease;
         }
         .navbar-brand { 
             font-weight: 700; font-size: 1.4rem; 
             background: linear-gradient(135deg, var(--primary), var(--secondary)); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        .navbar.scrolled { transform: translateY(0); }
 
         /* Hero */
         .hero { 
@@ -55,6 +56,7 @@
             transition: all 0.4s;
         }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(16,185,129,0.6); }
+        .btn-main:disabled { opacity: 0.7; transform: none !important; }
 
         /* Sections */
         .section-padding { padding: 100px 0; }
@@ -87,6 +89,13 @@
             display: flex; align-items: center; justify-content: center; color: white;
             font-size: 1.8rem; margin-bottom: 1.5rem;
         }
+        .contact-card {
+            cursor: pointer; transition: all 0.3s ease; border-radius: 16px;
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+        }
+        .contact-card:hover {
+            background: rgba(255,255,255,0.2); transform: translateY(-5px);
+        }
 
         /* Skills */
         .skill-bar { 
@@ -95,8 +104,20 @@
         }
         .skill-progress { 
             height: 100%; background: linear-gradient(90deg, var(--success), var(--secondary));
-            border-radius: 10px; transition: width 2.5s ease-out;
+            border-radius: 10px; width: 0%; transition: width 2.5s ease-out;
         }
+        .skill-container { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+        .skill-container.animate { opacity: 1; transform: translateY(0); }
+
+        /* Counters */
+        .counter { font-size: 3rem; font-weight: 800; }
+
+        /* Notifications */
+        .notification {
+            position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 320px;
+            transform: translateX(400px); transition: transform 0.3s ease;
+        }
+        .notification.show { transform: translateX(0); }
 
         /* Responsive */
         @media (max-width: 768px) { 
@@ -107,7 +128,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-network-wired me-2"></i>Bishal Gurung</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -132,21 +153,36 @@
                 <div class="col-lg-7">
                     <div class="hero-content">
                         <div class="badge bg-light text-dark px-4 py-2 fs-6 fw-semibold mb-4">BE Information Technology 2025 Graduate</div>
-                        <h1 class="display-3 fw-bold mb-4">Network Engineer</h1>
+                        <h1 id="heroTitle" class="display-3 fw-bold mb-4">Network Engineer</h1>
                         <p class="hero-subtitle lead">Bachelor of Engineering in Information Technology<br>Chandigarh University | Bharatpur, Nepal<br>Building robust network infrastructure for the future</p>
                         <div>
-                            <a href="resume.pdf" class="btn btn-main btn-lg me-3 mb-3">
+                            <a href="resume.pdf" class="btn btn-main btn-lg me-3 mb-3" target="_blank">
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
-                            <a href="#contact" class="btn btn-outline-light btn-lg mb-3">
+                            <a href="#contact" class="btn btn-outline-light btn-lg mb-3 contact-trigger">
                                 <i class="fas fa-envelope me-2"></i>Contact Me
                             </a>
+                        </div>
+                        <!-- Dynamic Counters -->
+                        <div class="row mt-5 pt-4">
+                            <div class="col-md-4 text-center">
+                                <div class="counter text-success" data-target="50">0</div>
+                                <div class="text-white-50">Projects Completed</div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="counter text-info" data-target="100">0</div>
+                                <div class="text-white-50">Networks Deployed</div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="counter text-warning" data-target="500">0</div>
+                                <div class="text-white-50">Hours Learning</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
                     <div class="position-relative">
-                        <img src="your-photo.jpg" alt="Bishal Gurung" class="img-fluid rounded-circle" 
+                        <img src="https://via.placeholder.com/300x300/1e3a8a/ffffff?text=Bishal+Gurung" alt="Bishal Gurung" class="img-fluid rounded-circle" 
                              style="width: 300px; height: 300px; object-fit: cover; border: 8px solid rgba(255,255,255,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.4);">
                     </div>
                 </div>
@@ -162,7 +198,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="your-photo.jpg" alt="Profile" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
+                    <img src="https://via.placeholder.com/500x500/3b82f6/ffffff?text=Bishal+Gurung" alt="Profile" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
                 </div>
                 <div class="col-lg-6">
                     <h3 class="fw-bold fs-2 text-dark mb-4">BE Information Technology 2025</h3>
@@ -205,30 +241,30 @@
                 <div class="col-lg-6">
                     <h4 class="fw-semibold mb-4">Core Networking Expertise</h4>
                     <div class="skill-container">
-                        <div class="skill-label">
+                        <div class="skill-label d-flex justify-content-between">
                             <span>Cisco CCNA (Routing & Switching)</span>
                             <span>95%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
+                            <div class="skill-progress" data-width="95%"></div>
                         </div>
                     </div>
                     <div class="skill-container">
-                        <div class="skill-label">
+                        <div class="skill-label d-flex justify-content-between">
                             <span>VLAN & Trunking Configuration</span>
                             <span>92%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%"></div>
+                            <div class="skill-progress" data-width="92%"></div>
                         </div>
                     </div>
                     <div class="skill-container">
-                        <div class="skill-label">
+                        <div class="skill-label d-flex justify-content-between">
                             <span>Network Troubleshooting</span>
                             <span>90%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" data-width="90%"></div>
                         </div>
                     </div>
                 </div>
@@ -253,322 +289,293 @@
             <div class="section-title">
                 <h2>Academic & Projects</h2>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card-professional">
-                        <div class="card-body text-center p-5">
-                            <div class="card-icon mb-4 mx-auto" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Bachelor of Engineering</h4>
-                            <h5 class="text-primary mb-3">Information Technology</h5>
-                            <p class="text-muted">Chandigarh University<br>Mohali, Punjab, India<br><strong>Completed: 2025</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card-professional">
-                        <div class="card-body p-5">
-                            <div class="card-icon mb-4"><i class="fas fa-network-wired"></i></div>
-                            <h5 class="fw-bold mb-3">Network Design Projects</h5>
-                            <ul class="text-muted small">
-                                <li>LAN/WAN topology design</li>
-                                <li>VLAN segmentation implementation</li>
-                                <li>IP addressing schemes</li>
-                                <li>Router/switch configuration</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card-professional">
-                        <div class="card-body p-5">
-                            <div class="card-icon mb-4" style="background: linear-gradient(135deg, var(--success), #34d399);">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <h5 class="fw-bold mb-3">Professional Development</h5>
-                            <p class="text-muted small mb-2">Nepal Engineering Council</p>
-                            <p class="text-muted small">IT Engineering License Preparation<br>CCNA Certification in Progress</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="experienceContainer">
+                <!-- Dynamic content loaded by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - FULLY DYNAMIC -->
     <section id="contact" class="section-padding bg-dark text-white py-lg-5">
         <div class="container">
             <div class="section-title">
                 <h2>Let's Connect</h2>
             </div>
-            <div class="row justify-content-center">
+            
+            <!-- Contact Info Cards -->
+            <div class="row justify-content-center mb-5">
                 <div class="col-lg-10">
                     <div class="row g-4 text-center">
                         <div class="col-md-4 mb-4">
-                            <div class="p-4">
-                                <i class="fas fa-map-marker-alt fa-3x text-secondary mb-4 d-block"></i>
+                            <div class="p-4 contact-card" data-contact="location">
+                                <i class="fas fa-map-marker-alt fa-3x text-success mb-4 d-block"></i>
                                 <h5>Bharatpur, Bagmati</h5>
                                 <p class="text-muted mb-0">Province, Nepal</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <div class="p-4">
-                                <i class="fas fa-envelope fa-3x text-secondary mb-4 d-block"></i>
+                            <div class="p-4 contact-card" data-contact="email">
+                                <i class="fas fa-envelope fa-3x text-info mb-4 d-block"></i>
                                 <h5>bishalgurung.np.com@gmail.com</h5>
-                                <p class="text-muted small">Replace with your email</p>
+                                <p class="text-muted small">Click to copy</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <div class="p-4">
-                                <i class="fab fa-linkedin fa-3x text-secondary mb-4 d-block"></i>
-                                <h5>LinkedIn Profile</h5>
-                                <p class="text-muted small">linkedin.com/in/bishal-gurung</p>
+                            <div class="p-4 contact-card" data-contact="phone">
+                                <i class="fab fa-whatsapp fa-3x text-success mb-4 d-block"></i>
+                                <h5>+977 9767466422</h5>
+                                <p class="text-muted small">WhatsApp Chat</p>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center pt-4">
-                        <a href="https://wa.me/9779767466422" class="btn btn-success btn-lg me-3 mb-3">
-                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
-                        </a>
-                        <a href="resume.pdf" class="btn btn-outline-light btn-lg mb-3">
-                            <i class="fas fa-file-pdf me-2"></i>Download Resume
-                        </a>
+                </div>
+            </div>
+
+            <!-- Dynamic Contact Form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="contactFormContainer">
+                        <div class="text-center mb-5">
+                            <h3 class="fw-bold display-6 mb-3">Get In Touch</h3>
+                            <p class="lead text-white-50 mb-4">Ready to discuss network projects? Send me a message!</p>
+                        </div>
+                        
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                        <label for="name">Full Name</label>
+                                        <div class="invalid-feedback">Please enter your name</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                        <label for="email">Email Address</label>
+                                        <div class="invalid-feedback">Please provide a valid email</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" style="height: 140px" placeholder="Your Message" required></textarea>
+                                        <label for="message">Project Details / Message</label>
+                                        <div class="invalid-feedback">Please share what you need help with</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-main btn-lg px-5" id="submitBtn">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <!-- Success/Error Messages -->
+                        <div id="formResponse" class="mt-4" style="display: none;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// Dynamic Portfolio Controller
-class BishalPortfolio {
-    constructor() {
-        this.init();
-        this.experienceData = [
-            { title: "BE Information Technology", org: "Chandigarh University", year: "2025", icon: "fa-university" },
-            { title: "Network Design Projects", org: "Academic Projects", year: "2024-2025", icon: "fa-network-wired" },
-            { title: "CCNA Certification", org: "Cisco Learning", year: "In Progress", icon: "fa-certificate" }
-        ];
-        this.skillsData = [
-            { name: "Cisco CCNA", level: 95, color: "success" },
-            { name: "VLAN Configuration", level: 92, color: "info" },
-            { name: "Troubleshooting", level: 90, color: "warning" }
-        ];
-    }
-
-    init() {
-        this.smoothScroll();
-        this.animateCounters();
-        this.animateSkills();
-        this.navbarScrollEffect();
-        this.contactFormHandler();
-        this.dynamicExperience();
-        this.typingEffect();
-    }
-
-    // Smooth scrolling with offset for fixed navbar
-    smoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    }
-
-    // Animate counters (views, projects, etc.)
-    animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
-        
-        const animate = (counter) => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.textContent;
-            const inc = target / speed;
-            
-            if (count < target) {
-                counter.textContent = Math.ceil(count + inc);
-                setTimeout(() => animate(counter), 1);
-            } else {
-                counter.textContent = target;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dynamic Portfolio Controller
+        class BishalPortfolio {
+            constructor() {
+                this.experienceData = [
+                    { title: "Bachelor of Engineering", org: "Information Technology", year: "2025", icon: "fa-university" },
+                    { title: "Network Design Projects", org: "Academic Projects", year: "2024-2025", icon: "fa-network-wired" },
+                    { title: "Professional Development", org: "Nepal Engineering Council", year: "In Progress", icon: "fa-certificate" }
+                ];
+                this.init();
             }
-        };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animate(entry.target);
-                }
-            });
-        });
-        
-        counters.forEach(counter => observer.observe(counter));
-    }
+            init() {
+                this.smoothScroll();
+                this.animateCounters();
+                this.animateSkills();
+                this.navbarScrollEffect();
+                this.contactHandler();
+                this.dynamicExperience();
+                this.typingEffect();
+            }
 
-    // Enhanced skill bar animations
-    animateSkills() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const bars = entry.target.querySelectorAll('.skill-progress');
-                    bars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        bar.style.width = width || '0%';
+            smoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(anchor.getAttribute('href'));
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
                     });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        document.querySelectorAll('.skill-container').forEach(el => observer.observe(el));
-    }
-
-    // Dynamic navbar effects
-    navbarScrollEffect() {
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', () => {
-            const scroll = window.scrollY;
-            
-            // Add glow effect on scroll
-            navbar.style.boxShadow = scroll > 50 
-                ? '0 10px 30px rgba(30,58,138,0.3)' 
-                : '0 4px 6px -1px rgba(0,0,0,0.1)';
-            
-            // Hide/show navbar
-            if (scroll > lastScroll && scroll > 100) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
+                });
             }
-            lastScroll = scroll;
-        });
-    }
 
-    // Dynamic experience cards from data
-    dynamicExperience() {
-        const experienceContainer = document.querySelector('#experience .row.g-4');
-        experienceContainer.innerHTML = this.experienceData.map((exp, index) => `
-            <div class="col-lg-4 col-md-6">
-                <div class="card-professional h-100" data-aos="fade-up" data-aos-delay="${index * 100}">
-                    <div class="card-body text-center p-5">
-                        <div class="card-icon mb-4 mx-auto" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
-                            <i class="fas ${exp.icon}"></i>
+            animateCounters() {
+                const animate = (counter) => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.textContent;
+                    const inc = target / 200;
+                    if (count < target) {
+                        counter.textContent = Math.ceil(count + inc);
+                        setTimeout(() => animate(counter), 1);
+                    } else counter.textContent = target;
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) animate(entry.target);
+                    });
+                });
+                document.querySelectorAll('.counter').forEach(counter => observer.observe(counter));
+            }
+
+            animateSkills() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const bars = entry.target.querySelectorAll('.skill-progress');
+                            bars.forEach(bar => {
+                                const width = bar.getAttribute('data-width');
+                                bar.style.width = width;
+                            });
+                            entry.target.classList.add('animate');
+                        }
+                    });
+                }, { threshold: 0.5 });
+                document.querySelectorAll('.skill-container').forEach(el => observer.observe(el));
+            }
+
+            navbarScrollEffect() {
+                let lastScroll = 0;
+                const navbar = document.getElementById('mainNavbar');
+                window.addEventListener('scroll', () => {
+                    const scroll = window.scrollY;
+                    if (scroll > 50) {
+                        navbar.style.boxShadow = '0 10px 30px rgba(30,58,138,0.3)';
+                    } else {
+                        navbar.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+                    }
+                    lastScroll = scroll;
+                });
+            }
+
+            dynamicExperience() {
+                const container = document.getElementById('experienceContainer');
+                container.innerHTML = this.experienceData.map((exp, index) => `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card-professional h-100">
+                            <div class="card-body text-center p-5">
+                                <div class="card-icon mb-4 mx-auto" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                                    <i class="fas ${exp.icon}"></i>
+                                </div>
+                                <h4 class="fw-bold mb-3">${exp.title}</h4>
+                                <h5 class="text-primary mb-3">${exp.org}</h5>
+                                <p class="text-muted"><strong>${exp.year}</strong></p>
+                            </div>
                         </div>
-                        <h4 class="fw-bold mb-3">${exp.title}</h4>
-                        <h5 class="text-primary mb-3">${exp.org}</h5>
-                        <p class="text-muted"><strong>Completed: ${exp.year}</strong></p>
                     </div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // Typing effect for hero title
-    typingEffect() {
-        const title = document.querySelector('.hero h1');
-        const text = title.textContent;
-        title.textContent = '';
-        let i = 0;
-        
-        const typeWriter = () => {
-            if (i < text.length) {
-                title.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
+                `).join('');
             }
-        };
-        window.addEventListener('load', typeWriter);
-    }
 
-    // Contact form handler with validation
-    contactFormHandler() {
-        // Add dynamic contact form
-        const contactSection = document.querySelector('#contact');
-        contactSection.innerHTML += `
-            <div class="row mt-5">
-                <div class="col-12">
-                    <form id="contactForm" class="row g-3">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
-                        </div>
-                        <div class="col-12">
-                            <textarea class="form-control" id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-main btn-lg">
-                                <i class="fas fa-paper-plane me-2"></i>Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        `;
+            typingEffect() {
+                const title = document.getElementById('heroTitle');
+                const text = title.textContent;
+                title.textContent = '';
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        title.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+                window.addEventListener('load', typeWriter);
+            }
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            
-            // Simulate API call
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate network delay
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Show success message
-            submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
-            submitBtn.classList.add('btn-success');
-            
-            setTimeout(() => {
-                e.target.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('btn-success');
-            }, 3000);
+            contactHandler() {
+                // Contact trigger effects
+                document.querySelectorAll('.contact-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', () => {
+                        setTimeout(() => {
+                            document.getElementById('name').focus();
+                            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                        }, 500);
+                    });
+                });
+
+                // Contact cards
+                document.querySelectorAll('.contact-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const type = card.dataset.contact;
+                        if (type === 'email') {
+                            navigator.clipboard.writeText('bishalgurung.np.com@gmail.com');
+                            this.showNotification('Email copied to clipboard!', 'success');
+                        } else if (type === 'phone') {
+                            window.open('https://wa.me/9779767466422', '_blank');
+                        }
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => card.style.transform = '', 150);
+                    });
+                });
+
+                // Form handler
+                const form = document.getElementById('contactForm');
+                const submitBtn = document.getElementById('submitBtn');
+                const responseDiv = document.getElementById('formResponse');
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    if (!form.checkValidity()) {
+                        form.classList.add('was-validated');
+                        return;
+                    }
+
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                    submitBtn.disabled = true;
+
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    responseDiv.innerHTML = `
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            Message sent successfully! I'll get back to you within 24 hours.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    `;
+                    responseDiv.style.display = 'block';
+                    form.reset();
+                    form.classList.remove('was-validated');
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                });
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `alert alert-${type} notification shadow-lg`;
+                notification.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                `;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.classList.add('show'), 100);
+                setTimeout(() => notification.remove(), 4000);
+            }
+        }
+
+        // Initialize portfolio
+        document.addEventListener('DOMContentLoaded', () => {
+            new BishalPortfolio();
         });
-    }
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new BishalPortfolio();
-    
-    // Add counters to hero section
-    const heroContent = document.querySelector('.hero-content');
-    heroContent.innerHTML += `
-        <div class="row mt-5 pt-4">
-            <div class="col-md-4 text-center">
-                <div class="counter fs-1 fw-bold text-success" data-target="50">0</div>
-                <div class="text-white-50">Projects Completed</div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="counter fs-1 fw-bold text-info" data-target="100">0</div>
-                <div class="text-white-50">Networks Deployed</div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="counter fs-1 fw-bold text-warning" data-target="500">0</div>
-                <div class="text-white-50">Hours Learning</div>
-            </div>
-        </div>
-    `;
-});
-</script>
+    </script>
 </body>
 </html>
 
