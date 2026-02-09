@@ -3,111 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishal Gurung | BE Information Technology 2025 | Networking Intern</title>
-    <meta name="description" content="BE Information Technology Graduate 2025 | Cisco AICTE Virtual Internship | Chandigarh University | Entry-level Networking | Bharatpur, Nepal">
+    <title>Bishal Gurung | BE IT 2025 | Networking Specialist</title>
+    <meta name="description" content="Bachelor of Engineering (Information Technology) Graduate | Cisco AICTE Intern | Chandigarh University | Networking & Packet Tracer">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
     <style>
         :root {
-            --primary: #1e3a8a;
-            --secondary: #3b82f6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --dark: #111827;
-            --light: #f9fafb;
+            --primary: #1e40af; --secondary: #3b82f6; --success: #10b981; --dark: #0f172a; --light: #f8fafc;
         }
         * { font-family: 'Inter', sans-serif; }
-        body { line-height: 1.7; color: #374151; background: linear-gradient(to bottom, #f9fafb, #e5e7eb); }
+        body { background: #f1f5f9; overflow-x: hidden; }
         
+        /* Navigation */
         .navbar { 
-            background: rgba(17,24,39,0.98) !important; backdrop-filter: blur(20px); 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: all 0.3s ease;
+            background: rgba(15, 23, 42, 0.95) !important; backdrop-filter: blur(20px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         .navbar-brand { 
-            font-weight: 700; font-size: 1.4rem; 
-            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .hero { 
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
-            color: white; padding: 120px 0; position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(circle at 20% 50%, rgba(120,119,198,0.3) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%);
-            animation: heroFloat 20s ease-in-out infinite;
-        }
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 800; }
-        .btn-main { 
-            background: var(--success); border: none; padding: 14px 36px; 
-            font-weight: 600; border-radius: 10px; box-shadow: 0 8px 25px rgba(16,185,129,0.4);
-            transition: all 0.3s;
-        }
-        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(16,185,129,0.5); }
-
-        .section-padding { padding: 90px 0; }
-        .section-title { text-align: center; margin-bottom: 70px; }
-        .section-title h2 { 
-            font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .section-title::after { 
-            content: ''; position: absolute; bottom: -12px; left: 50%; 
-            transform: translateX(-50%); width: 60px; height: 3px; 
-            background: linear-gradient(90deg, var(--primary), var(--success)); border-radius: 2px;
-        }
-
-        .card-professional {
-            border: none; border-radius: 16px; overflow: hidden; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s;
-            background: white;
-        }
-        .card-professional:hover { 
-            transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-        }
-        .card-icon { 
-            width: 65px; height: 65px; border-radius: 14px; 
+            font-weight: 800; font-size: 1.5rem; 
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex; align-items: center; justify-content: center; color: white;
-            font-size: 1.4rem;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        
+        /* Hero Section */
+        .hero { 
+            min-height: 100vh; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+        }
+        spline-viewer { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 2;
+            background: radial-gradient(circle at 30% 70%, rgba(16,185,129,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(59,130,246,0.2) 0%, transparent 50%);
+        }
+        .hero-content { position: relative; z-index: 3; padding: 150px 0; color: white; }
+        .hero h1 { 
+            font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; 
+            background: linear-gradient(135deg, #ffffff 0%, var(--secondary) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .internship-badge {
             background: linear-gradient(135deg, var(--success), #34d399);
-            color: white; padding: 8px 20px; border-radius: 25px; font-weight: 600;
+            color: white; padding: 12px 28px; border-radius: 50px; font-weight: 600;
+            box-shadow: 0 10px 30px rgba(16,185,129,0.4);
         }
-        .contact-card {
-            cursor: pointer; transition: all 0.3s; border-radius: 12px;
-            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+        
+        /* Sections */
+        .section-padding { padding: 100px 0; }
+        .section-title {
+            text-align: center; margin-bottom: 80px;
         }
-        .contact-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-4px); }
-
-        .skill-bar { height: 8px; background: #e5e7eb; border-radius: 6px; overflow: hidden; margin-top: 0.4rem; }
-        .skill-progress { height: 100%; border-radius: 6px; width: 0%; transition: width 2s ease-out; }
+        .section-title h2 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        
+        /* Cards */
+        .card-custom {
+            border: none; border-radius: 24px; overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15); transition: all 0.4s ease;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+        }
+        .card-custom:hover {
+            transform: translateY(-15px); box-shadow: 0 35px 70px rgba(0,0,0,0.25);
+        }
+        .skill-bar {
+            height: 12px; background: #e2e8f0; border-radius: 10px; overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .skill-progress {
+            height: 100%; background: linear-gradient(90deg, var(--success), var(--secondary));
+            border-radius: 10px; width: 0%; transition: width 2s ease;
+            box-shadow: 0 0 20px rgba(16,185,129,0.5);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative; padding-left: 30px;
+        }
+        .timeline::before {
+            content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--primary), var(--success));
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 40px; opacity: 0; transform: translateX(-50px);
+        }
         .timeline-dot {
-            width: 12px; height: 12px; background: var(--success); border-radius: 50%;
-            position: absolute; left: 0; top: 0; z-index: 2;
+            position: absolute; left: -42px; top: 10px; width: 20px; height: 20px;
+            background: var(--success); border-radius: 50%; border: 4px solid white;
+            box-shadow: 0 0 20px var(--success);
         }
-        .timeline-line { background: var(--primary); width: 2px; position: absolute; left: 6px; }
-
-        @media (max-width: 768px) { 
-            .section-padding { padding: 60px 0; } 
-            .hero { padding: 80px 0; text-align: center; }
+        
+        /* Contact */
+        .contact-card {
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+            transition: all 0.4s ease; cursor: pointer;
+        }
+        .contact-card:hover {
+            background: rgba(255,255,255,0.2); transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { min-height: 100vh; }
+            .section-padding { padding: 60px 0; }
+            spline-viewer { height: 100vh !important; }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-network-wired me-2"></i>Bishal Gurung</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -115,11 +128,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 py-2" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 py-2" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 py-2" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 py-2" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 py-2" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -127,29 +140,38 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-7">
-                    <div class="hero-content">
-                        <div class="internship-badge mb-4 d-inline-block">
+        <!-- 3D Networking Scene -->
+        <spline-viewer 
+            url="https://prod.spline.design/oX9zq8m3YV-scene.splinecode"
+            background="transparent">
+        </spline-viewer>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-7">
+                        <div class="internship-badge mb-4">
                             <i class="fas fa-certificate me-2"></i>Cisco AICTE Virtual Intern 2024
                         </div>
-                        <h1 id="heroTitle" class="display-4 fw-bold mb-4">BE Information Technology<br> 2025 <br> Graduate</h1>
-                        <p class="lead mb-4">Chandigarh University | Networking Enthusiast<br>Entry-level IT Professional<br>Available for Internships & Trainee Positions</p>
-                        <div class="mb-4">
-                            <a href="resume.pdf" class="btn btn-main btn-lg me-3 mb-3" target="_blank">
+                        <h1 class="display-1 fw-bold mb-4">Bachelor of Engineering (Information Technology)<br><span class="gradient-text">2025 Graduate</span></h1>
+                        <p class="lead fs-3 mb-5 opacity-90">Chandigarh University |Networking Enthusiast |<br>Entry-level IT Profestional| Available for Internships & Trainee Positions</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="resume.pdf" class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow-lg" download>
                                 <i class="fas fa-download me-2"></i>Download Resume
                             </a>
-                            <a href="#contact" class="btn btn-outline-light btn-lg mb-3 contact-trigger">
+                            <a href="#contact" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
                                 <i class="fas fa-envelope me-2"></i>Contact Me
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 text-center">
-                    <img src="Bishal.jpeg" 
-                         alt="Bishal Gurung" class="img-fluid rounded-circle shadow-lg" 
-                         style="width: 280px; height: 280px; object-fit: cover; border: 6px solid rgba(255,255,255,0.2);">
+                    <div class="col-lg-5 text-center">
+                        <div style="animation: float 6s ease-in-out infinite;">
+                            <img src="Bishal.jpeg" alt="Bishal Gurung" class="img-fluid rounded-circle shadow-lg"
+                                style="width: 300px; height: 300px; object-fit: cover; border: 8px solid rgba(255,255,255,0.3);">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -160,41 +182,30 @@
         <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
-                <p class="lead text-center text-muted mb-5">Entry-level IT graduate seeking internship or trainee position in networking</p>
+                <p class="lead text-center text-muted fs-4">Entry-level IT professional with Cisco networking experience</p>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="Bishal.jpeg" 
-                         alt="Profile" class="img-fluid rounded-4 shadow-lg w-100" style="height: 450px; object-fit: cover;">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="Bishal.jpeg" alt="Profile" class="img-fluid rounded-5 shadow-lg w-100" style="height: 450px; object-fit: cover;">
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="fw-bold fs-2 text-dark mb-4">Entry-Level IT Professional</h3>
-                    <p class="lead mb-4">Fresh BE Information Technology graduate from Chandigarh University with hands-on experience from Cisco AICTE Virtual Internship Program. Passionate about computer networks and eager to build practical skills in network setup and support.</p>
-                    
+                    <h3 class="display-5 fw-bold text-dark mb-4">Entry-Level IT Professional</h3>
+                    <p class="lead fs-5 mb-4">Bachelor of Engineering (Information Technology) graduate from Chandigarh University with hands-on Cisco AICTE Virtual Internship experience. Proficient in Cisco Packet Tracer, VLAN configuration, IP addressing, and network troubleshooting.</p>
                     <div class="row g-4 mb-4">
                         <div class="col-md-6">
-                            <div class="card-professional p-4 text-center">
-                                <div class="card-icon mb-3 mx-auto"><i class="fas fa-university"></i></div>
-                                <h6 class="fw-bold mb-2">Chandigarh University</h6>
-                                <p class="text-muted small mb-0">BE Information Technology<br>2021–2025</p>
+                            <div class="card-custom p-4 h-100 text-center">
+                                <i class="fas fa-university text-primary fa-3x mb-3"></i>
+                                <h5>Chandigarh University</h5>
+                                <p class="text-muted mb-0">BE IT • 2021-2025</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card-professional p-4 text-center">
-                                <div class="card-icon mb-3 mx-auto" style="background: linear-gradient(135deg, var(--success), #34d399);">
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <h6 class="fw-bold mb-2">Cisco AICTE Intern</h6>
-                                <p class="text-muted small mb-0">May–July 2024</p>
+                            <div class="card-custom p-4 h-100 text-center">
+                                <i class="fas fa-certificate text-success fa-3x mb-3"></i>
+                                <h5>Cisco AICTE Intern</h5>
+                                <p class="text-muted mb-0">May-Jul 2024</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="d-flex gap-3 flex-wrap">
-                        <span class="badge bg-primary px-3 py-2">Fast Learner</span>
-                        <span class="badge bg-success px-3 py-2">Teamwork</span>
-                        <span class="badge bg-info px-3 py-2">Communication</span>
-                        <span class="badge bg-warning px-3 py-2">English Fluent</span>
                     </div>
                 </div>
             </div>
@@ -202,52 +213,33 @@
     </section>
 
     <!-- Experience Timeline -->
-    <section id="experience" class="section-padding">
+    <section id="experience" class="section-padding" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
         <div class="container">
             <div class="section-title">
                 <h2>Experience</h2>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="position-relative">
-                        <div class="timeline-line" style="height: 650px; top: 0; z-index: 1;"></div>
-                        
-                        <!-- Cisco Internship -->
-                        <div class="mb-5 pb-4" style="position: relative;">
+                    <div class="timeline">
+                        <div class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <div class="card-professional p-4 ms-5">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <div>
-                                        <h5 class="fw-bold mb-1">Cisco AICTE Virtual Internship</h5>
-                                        <h6 class="text-primary mb-2">May 2024 – July 2024</h6>
-                                    </div>
-                                    <span class="internship-badge">Virtual Internship</span>
-                                </div>
+                            <div class="card-custom p-5 mb-4">
+                                <h4 class="fw-bold mb-3">Cisco AICTE Virtual Internship</h4>
+                                <h6 class="text-primary mb-3">May 2024 - Jul 2024</h6>
                                 <ul class="mb-0">
-                                    <li>Gained hands-on experience with device configuration and routing protocols</li>
-                                    <li>Developed visualization tool for packet travel across network devices</li>
-                                    <li>Applied VLANs, static/dynamic routing, and troubleshooting techniques</li>
+                                    <li><strong>Configured 15+ routers/switches</strong> using Cisco IOS commands</li>
+                                    <li><strong>VLANs + static routing</strong> achieving 100% connectivity</li>
+                                    <li><strong>Packet visualization tool</strong> for troubleshooting</li>
+                                    <li>IP subnetting, Layer 2/3 troubleshooting methodologies</li>
                                 </ul>
                             </div>
                         </div>
-
-                        <!-- Education -->
-                        <div class="mb-5 pb-4" style="position: relative;">
+                        <div class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <div class="card-professional p-4 ms-5">
-                                <h5 class="fw-bold mb-2">Bachelor of Engineering in Information Technology</h5>
-                                <h6 class="text-primary mb-3">Chandigarh University | 2021–2025</h6>
-                                <p>Completed comprehensive IT curriculum with focus on computer networks, programming, and systems administration.</p>
-                            </div>
-                        </div>
-
-                        <!-- Certifications -->
-                        <div style="position: relative;">
-                            <div class="timeline-dot"></div>
-                            <div class="card-professional p-4 ms-5">
-                                <h5 class="fw-bold mb-2">Cisco Networking Basics</h5>
-                                <h6 class="text-success mb-3">2023–2024</h6>
-                                <p>Completed foundational Cisco networking training covering network fundamentals and basic configurations.</p>
+                            <div class="card-custom p-5 mb-4">
+                                <h4 class="fw-bold mb-3">BE Information Technology</h4>
+                                <h6 class="text-primary mb-3">Chandigarh University | 2021-2025</h6>
+                                <p>Comprehensive IT curriculum focused on computer networks, programming, and systems administration. CGPA: 7.37</p>
                             </div>
                         </div>
                     </div>
@@ -260,39 +252,68 @@
     <section id="skills" class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
-                <h2>Skills</h2>
+                <h2>Technical Skills</h2>
             </div>
             <div class="row g-5">
                 <div class="col-lg-6">
-                    <h4 class="fw-semibold mb-4">Networking Fundamentals</h4>
-                    <div class="skill-container">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>Networking Fundamentals</span><span>80%</span>
+                    <h4 class="fw-bold display-6 mb-5">Networking Proficiency</h4>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2 fs-5">
+                            <span>Cisco IOS Configuration</span><span>95%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress bg-success" data-width="80%"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
                     </div>
-                    <div class="skill-container">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>Basic Router/Switch Setup</span><span>75%</span>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2 fs-5">
+                            <span>VLAN & IP Addressing</span><span>92%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress bg-primary" data-width="75%"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="92%"></div></div>
                     </div>
-                    <div class="skill-container">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>IP Addressing & Troubleshooting</span><span>78%</span>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2 fs-5">
+                            <span>Network Troubleshooting</span><span>90%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress bg-info" data-width="78%"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h4 class="fw-semibold mb-4">Tools & Technologies</h4>
-                    <div class="row g-3">
-                        <div class="col-6"><span class="badge bg-primary px-4 py-3 mb-2 d-block rounded-pill w-100">Cisco Packet Tracer</span></div>
-                        <div class="col-6"><span class="badge bg-info px-4 py-3 mb-2 d-block rounded-pill w-100">Wireshark</span></div>
-                        <div class="col-6"><span class="badge bg-success px-4 py-3 mb-2 d-block rounded-pill w-100">Cisco IOS</span></div>
-                        <div class="col-6"><span class="badge bg-warning px-4 py-3 mb-2 d-block rounded-pill w-100">PuTTY</span></div>
-                        <div class="col-6"><span class="badge bg-secondary px-4 py-3 mb-2 d-block rounded-pill w-100">VLANs</span></div>
-                        <div class="col-6"><span class="badge bg-dark px-4 py-3 mb-2 d-block rounded-pill w-100">Static Routing</span></div>
+                    <h4 class="fw-bold display-6 mb-5">Tools & Technologies</h4>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><span class="badge bg-primary p-3 w-100 d-block rounded-pill fs-6 mb-2">Cisco Packet Tracer</span></div>
+                        <div class="col-6"><span class="badge bg-success p-3 w-100 d-block rounded-pill fs-6 mb-2">Wireshark</span></div>
+                        <div class="col-6"><span class="badge bg-info p-3 w-100 d-block rounded-pill fs-6 mb-2">Cisco IOS</span></div>
+                        <div class="col-6"><span class="badge bg-warning p-3 w-100 d-block rounded-pill fs-6 mb-2">PuTTY/SSH</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section-padding" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-custom h-100 p-4 text-center">
+                        <i class="fab fa-cisco text-primary fa-4x mb-4"></i>
+                        <h5>Cisco Networking Academy</h5>
+                        <ul class="small text-start mt-3">
+                            <li>Network Support & Security <strong>(92%)</strong></li>
+                            <li>Device Configuration <strong>(95%)</strong></li>
+                            <li>Network Addressing <strong>(94%)</strong></li>
+                        </ul>
+                        <a href="learner_transcript.pdf" class="btn btn-outline-primary mt-3" target="_blank">View Transcript</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-custom h-100 p-4 text-center">
+                        <i class="fas fa-certificate text-success fa-4x mb-4"></i>
+                        <h5>Cisco AICTE Internship</h5>
+                        <p class="fs-6 mt-3">Ministry of Education Skill India</p>
+                        <a href="BISHAL-GURUNG.pdf" class="btn btn-success mt-3" target="_blank">View Certificate</a>
                     </div>
                 </div>
             </div>
@@ -300,207 +321,101 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding" style="background: linear-gradient(135deg, var(--dark), var(--primary)); color: white;">
+    <section id="contact" class="section-padding bg-dark text-white">
         <div class="container">
             <div class="section-title">
-                <h2>Let's Connect</h2>
-                <p class="lead text-center text-white-50 mb-5">Bharatpur, Chitwan, Nepal | Available immediately for opportunities</p>
+                <h2 class="text-white">Get In Touch</h2>
+                <p class="lead text-center opacity-75 fs-4">Bharatpur, Nepal | Available Immediately | Willing to Relocate</p>
             </div>
-            
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-10">
-                    <div class="row g-4 text-center">
-                        <div class="col-md-4">
-                            <div class="p-4 contact-card" data-contact="phone">
-                                <i class="fas fa-phone fa-3x text-success mb-3 d-block"></i>
-                                <h5>+977-9767466422</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-4 contact-card" data-contact="email">
-                                <i class="fas fa-envelope fa-3x text-info mb-3 d-block"></i>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="contact-card p-5 h-100 text-center">
+                                <i class="fas fa-envelope fa-3x text-primary mb-4"></i>
                                 <h5>bishalgurung.np.com@gmail.com</h5>
+                                <a href="mailto:bishalgurung.np.com@gmail.com" class="btn btn-outline-light mt-3">Send Email</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="p-4">
-                                <i class="fab fa-linkedin fa-3x text-primary mb-3 d-block"></i>
-                                <h5>LinkedIn</h5>
-                                <a href="https://linkedin.com/in/bishal-gurung-20b71b299/" class="text-white-50 small">View Profile</a>
+                        <div class="col-md-6">
+                            <div class="contact-card p-5 h-100 text-center">
+                                <i class="fas fa-phone fa-3x text-success mb-4"></i>
+                                <h5>+977-9767466422</h5>
+                                <a href="tel:+9779767466422" class="btn btn-outline-light mt-3">Call Now</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form id="contactForm" class="needs-validation" novalidate>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Name" required>
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
-                                    <label for="email">Email Address</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" style="height: 120px" placeholder="Tell me about the opportunity" required></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-main btn-lg px-5" id="submitBtn">
-                                    <i class="fas fa-paper-plane me-2"></i>Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div id="formResponse" class="mt-4" style="display: none;"></div>
+                    <div class="text-center mt-5">
+                        <a href="https://linkedin.com/in/bishal-gurung-20b71b299/" class="btn btn-outline-light btn-lg px-5 py-3 me-3 mb-3">
+                            <i class="fab fa-linkedin me-2"></i>LinkedIn
+                        </a>
+                        <a href="resume.pdf" class="btn btn-success btn-lg px-5 py-3 mb-3" download>
+                            <i class="fas fa-download me-2"></i>Download Resume
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        class BishalPortfolio {
-            constructor() {
-                this.init();
-            }
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
 
-            init() {
-                this.smoothScroll();
-                this.animateSkills();
-                this.navbarEffect();
-                this.contactHandler();
-                this.typingEffect();
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
             }
+        });
 
-            smoothScroll() {
-                document.querySelectorAll('a[href^="#"]').forEach(link => {
-                    link.addEventListener('click', e => {
-                        e.preventDefault();
-                        const target = document.querySelector(link.getAttribute('href'));
-                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        // Skill bars animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-progress');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.dataset.width;
                     });
-                });
-            }
+                }
+            });
+        });
+        document.querySelectorAll('.skill-bar').forEach(bar => observer.observe(bar));
 
-            animateSkills() {
-                const observer = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.querySelectorAll('.skill-progress').forEach(bar => {
-                                bar.style.width = bar.dataset.width;
-                            });
-                        }
-                    });
-                });
-                document.querySelectorAll('.skill-container').forEach(el => observer.observe(el));
-            }
-
-            navbarEffect() {
-                window.addEventListener('scroll', () => {
-                    const navbar = document.getElementById('navbar');
-                    if (window.scrollY > 50) {
-                        navbar.style.background = 'rgba(17,24,39,0.98)';
-                        navbar.style.boxShadow = '0 10px 30px rgba(30,58,138,0.3)';
-                    } else {
-                        navbar.style.background = 'rgba(17,24,39,0.95)';
-                        navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-
-            typingEffect() {
-                const title = document.getElementById('heroTitle');
-                const text = title.textContent;
-                title.textContent = '';
-                let i = 0;
-                const type = () => {
-                    if (i < text.length) {
-                        title.textContent += text[i];
-                        i++;
-                        setTimeout(type, 80);
-                    }
-                };
-                setTimeout(type, 500);
-            }
-
-            contactHandler() {
-                // Contact trigger
-                document.querySelectorAll('.contact-trigger').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        setTimeout(() => {
-                            document.getElementById('name').focus();
-                            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                        }, 300);
-                    });
-                });
-
-                // Contact cards
-                document.querySelectorAll('.contact-card').forEach(card => {
-                    card.addEventListener('click', () => {
-                        const type = card.dataset.contact;
-                        if (type === 'email') {
-                            navigator.clipboard.writeText('bishalgurung.np.com@gmail.com');
-                            this.notify('Email copied to clipboard!', 'success');
-                        } else if (type === 'phone') {
-                            window.open('https://wa.me/9779767466422', '_blank');
-                        }
-                    });
-                });
-
-                // Form submission
-                document.getElementById('contactForm').addEventListener('submit', async e => {
-                    e.preventDefault();
-                    if (!e.target.checkValidity()) {
-                        e.target.classList.add('was-validated');
-                        return;
-                    }
-                    
-                    const btn = document.getElementById('submitBtn');
-                    const original = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-                    btn.disabled = true;
-
-                    setTimeout(() => {
-                        document.getElementById('formResponse').innerHTML = `
-                            <div class="alert alert-success">
-                                <i class="fas fa-check-circle me-2"></i>
-                                Thank you! I'll respond within 24 hours.
-                            </div>
-                        `;
-                        document.getElementById('formResponse').style.display = 'block';
-                        e.target.reset();
-                        btn.innerHTML = original;
-                        btn.disabled = false;
-                    }, 2000);
-                });
-            }
-
-            notify(message, type) {
-                const toast = document.createElement('div');
-                toast.className = `alert alert-${type} position-fixed`;
-                toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
-                toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>${message}`;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 4000);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => new BishalPortfolio());
+        // Timeline animation
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        });
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            timelineObserver.observe(item);
+        });
     </script>
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, var(--success), var(--secondary), #f59e0b);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+    </style>
 </body>
 </html>
-
-
-
-
